@@ -7,31 +7,32 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class AnimeService {
-  constructor(
-    @InjectRepository(Anime) private animeRepository: Repository<Anime>,
+  public constructor(
+    @InjectRepository(Anime)
+    private readonly animeRepository: Repository<Anime>,
   ) {}
 
-  async create(createAnimeDto: CreateAnimeDto) {
+  public async create(createAnimeDto: CreateAnimeDto) {
     return await this.animeRepository.save(createAnimeDto);
   }
 
-  async findAll() {
+  public async findAll() {
     return await this.animeRepository.find();
   }
 
-  async findById(id: number) {
+  public async findById(id: number) {
     return await this.animeRepository.findOneBy({ id });
   }
 
-  async existsById(id: number) {
+  public async existsById(id: number) {
     return await this.animeRepository.findOneBy({ id });
   }
 
-  async updateById(id: number, updateAnimeDto: UpdateAnimeDto) {
+  public async updateById(id: number, updateAnimeDto: UpdateAnimeDto) {
     return await this.animeRepository.update({ id }, updateAnimeDto);
   }
 
-  async removeById(id: number) {
+  public async removeById(id: number) {
     if (!(await this.existsById(id))) return false;
 
     await this.animeRepository.delete({ id });

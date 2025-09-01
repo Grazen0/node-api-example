@@ -13,20 +13,20 @@ import { UpdateAnimeDto } from './dto/update-anime.dto';
 
 @Controller('anime')
 export class AnimeController {
-  constructor(private readonly animeService: AnimeService) {}
+  public constructor(private readonly animeService: AnimeService) {}
 
   @Post()
-  async create(@Body() createAnimeDto: CreateAnimeDto) {
+  public async create(@Body() createAnimeDto: CreateAnimeDto) {
     return await this.animeService.create(createAnimeDto);
   }
 
   @Get()
-  async findAll() {
+  public async findAll() {
     return await this.animeService.findAll();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  public async findOne(@Param('id') id: string) {
     const anime = await this.animeService.findById(+id);
 
     if (!anime) {
@@ -40,7 +40,7 @@ export class AnimeController {
   }
 
   @Put(':id')
-  async update(
+  public async update(
     @Param('id') id: string,
     @Body() updateAnimeDto: UpdateAnimeDto,
   ) {
@@ -48,7 +48,7 @@ export class AnimeController {
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  public async remove(@Param('id') id: string) {
     const wasDeleted = await this.animeService.removeById(+id);
 
     if (!wasDeleted) {
