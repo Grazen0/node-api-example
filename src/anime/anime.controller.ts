@@ -44,7 +44,16 @@ export class AnimeController {
     @Param('id') id: string,
     @Body() updateAnimeDto: UpdateAnimeDto,
   ) {
-    return await this.animeService.updateById(+id, updateAnimeDto);
+    const anime = await this.animeService.updateById(+id, updateAnimeDto);
+
+    if (!anime) {
+      return {
+        status: 404,
+        message: 'Anime Not Found.',
+      };
+    }
+
+    return anime;
   }
 
   @Delete(':id')
