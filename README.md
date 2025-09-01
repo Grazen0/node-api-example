@@ -1,3 +1,3 @@
-# Anime API
+# Node API example
 
-An example Rest API with NestJS a university assignment.
+An example anime CRUD app made with [NestJS](https://nestjs.com/) for a university assignment.
