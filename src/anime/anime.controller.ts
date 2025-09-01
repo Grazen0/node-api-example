@@ -16,13 +16,13 @@ export class AnimeController {
   constructor(private readonly animeService: AnimeService) {}
 
   @Post()
-  create(@Body() createAnimeDto: CreateAnimeDto) {
-    return this.animeService.create(createAnimeDto);
+  async create(@Body() createAnimeDto: CreateAnimeDto) {
+    return await this.animeService.create(createAnimeDto);
   }
 
   @Get()
-  findAll() {
-    return this.animeService.findAll();
+  async findAll() {
+    return await this.animeService.findAll();
   }
 
   @Get(':id')
@@ -40,8 +40,11 @@ export class AnimeController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateAnimeDto: UpdateAnimeDto) {
-    return this.animeService.updateById(+id, updateAnimeDto);
+  async update(
+    @Param('id') id: string,
+    @Body() updateAnimeDto: UpdateAnimeDto,
+  ) {
+    return await this.animeService.updateById(+id, updateAnimeDto);
   }
 
   @Delete(':id')

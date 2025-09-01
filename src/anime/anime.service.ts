@@ -11,24 +11,24 @@ export class AnimeService {
     @InjectRepository(Anime) private animeRepository: Repository<Anime>,
   ) {}
 
-  create(createAnimeDto: CreateAnimeDto) {
-    return this.animeRepository.save(createAnimeDto);
+  async create(createAnimeDto: CreateAnimeDto) {
+    return await this.animeRepository.save(createAnimeDto);
   }
 
-  findAll() {
-    return this.animeRepository.find();
+  async findAll() {
+    return await this.animeRepository.find();
   }
 
-  findById(id: number) {
-    return this.animeRepository.findOneBy({ id });
+  async findById(id: number) {
+    return await this.animeRepository.findOneBy({ id });
   }
 
-  existsById(id: number) {
-    return this.animeRepository.findOneBy({ id });
+  async existsById(id: number) {
+    return await this.animeRepository.findOneBy({ id });
   }
 
-  updateById(id: number, updateAnimeDto: UpdateAnimeDto) {
-    return this.animeRepository.update({ id }, updateAnimeDto);
+  async updateById(id: number, updateAnimeDto: UpdateAnimeDto) {
+    return await this.animeRepository.update({ id }, updateAnimeDto);
   }
 
   async removeById(id: number) {
