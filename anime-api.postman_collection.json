@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "545cb023-2e80-498e-a14f-6acf4fd597ea",
+		"name": "anime-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43480626",
+		"_collection_link": "https://planetary-escape-1391844.postman.co/workspace/Jos%C3%A9-Grayson's-Workspace~c4bc84d3-04dd-4b1c-8d8a-76d19da3f965/collection/43480626-545cb023-2e80-498e-a14f-6acf4fd597ea?action=share&source=collection_link&creator=43480626"
+	},
+	"item": [
+		{
+			"name": "Get all anime",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/anime",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"anime"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get anime by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/anime/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"anime",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create anime",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"JoJo\",\n    \"seasons\": 6,\n    \"rating\": 9.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/anime",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"anime"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update anime by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"JoJo's Bizarre Adventure\",\n    \"rating\": 10,\n    \"seasons\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/anime/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"anime",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete anime by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/anime/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"anime",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
